@@ -21,11 +21,22 @@ namespace Scavenger.UI
         {
             InitializeComponent();
             InitializeTextAsync();
+            PopulateContinentsComboBox();
         }
 
         private async void InitializeTextAsync()
         {
             FirstTextBlock.Text = await Vultr.GetLocations();
+        }
+
+        private void PopulateContinentsComboBox()
+        {
+            for (int i = 0; i < 5; i++)
+            {
+                ContinentsComboBox.Items.Add("Place" + i);
+            }
+
+            ContinentsComboBox.SelectedIndex = 1;
         }
     }
 }
