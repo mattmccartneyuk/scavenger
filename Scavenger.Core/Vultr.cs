@@ -8,8 +8,6 @@ public static class Vultr
         {
             using (HttpClient client = new HttpClient())
             {
-                client.DefaultRequestHeaders.Add("Authorization", "Bearer");
-
                 HttpResponseMessage response = await client.GetAsync("https://api.vultr.com/v2/regions");
 
                 var body = response.Content.ReadAsStringAsync();
