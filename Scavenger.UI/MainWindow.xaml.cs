@@ -26,7 +26,16 @@ namespace Scavenger.UI
 
         private async void InitializeTextAsync()
         {
-            FirstTextBlock.Text = await Vultr.GetLocations();
+
+            string text = "";
+            RootRegionObject regions = await Vultr.GetLocations();
+
+            foreach (var region in regions.Regions)
+            {
+                text += region.Continent + " ";
+            }
+
+            FirstTextBlock.Text = text;
         }
 
         private void PopulateContinentsComboBox()
