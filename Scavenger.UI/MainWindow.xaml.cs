@@ -8,6 +8,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Scavenger.Core;
 
 namespace Scavenger.UI
 {
@@ -19,6 +20,12 @@ namespace Scavenger.UI
         public MainWindow()
         {
             InitializeComponent();
+            InitializeTextAsync();
+        }
+
+        private async void InitializeTextAsync()
+        {
+            FirstTextBlock.Text = await Vultr.GetLocations();
         }
     }
 }
