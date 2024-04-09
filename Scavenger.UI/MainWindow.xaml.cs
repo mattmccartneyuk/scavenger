@@ -27,7 +27,7 @@ namespace Scavenger.UI
         {
             RootRegionObject regions = await Vultr.GetLocations();
 
-            foreach (var continent in regions.Regions.GroupBy(x => x.Continent).Select(x => x.Key))
+            foreach (var continent in regions.Regions.GroupBy(x => x.Continent).Select(x => x.Key).OrderBy(x => x))
             {
                 ContinentsComboBox.Items.Add(continent);
             }
