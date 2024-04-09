@@ -7,9 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800" WindowState="Maximized">
     <Grid>
-        <TextBlock x:Name="FirstTextBlock" TextWrapping="Wrap" Text="TextBlock" Margin="39,46,137,85"/>
         <Label Content="Continent" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <ComboBox x:Name="ContinentsComboBox" HorizontalAlignment="Center" VerticalAlignment="Center" Width="150"></ComboBox>
-
     </Grid>
 </Window>

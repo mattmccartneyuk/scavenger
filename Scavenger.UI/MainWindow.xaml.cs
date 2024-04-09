@@ -20,29 +20,16 @@ namespace Scavenger.UI
         public MainWindow()
         {
             InitializeComponent();
-            InitializeTextAsync();
             PopulateContinentsComboBox();
         }
 
-        private async void InitializeTextAsync()
+        private async Task PopulateContinentsComboBox()
         {
-
-            string text = "";
             RootRegionObject regions = await Vultr.GetLocations();
 
             foreach (var region in regions.Regions)
             {
-                text += region.Continent + " ";
-            }
-
-            FirstTextBlock.Text = text;
-        }
-
-        private void PopulateContinentsComboBox()
-        {
-            for (int i = 0; i < 5; i++)
-            {
-                ContinentsComboBox.Items.Add("Place" + i);
+                ContinentsComboBox.Items.Add(region.Continent);
             }
 
             ContinentsComboBox.SelectedIndex = 1;
