@@ -17,15 +17,36 @@ namespace Scavenger.UI
     /// </summary>
     public partial class MainWindow : Window
     {
+        private ContinentToCountry _continentToCountry;
+
         public MainWindow()
         {
             InitializeComponent();
             PopulateComboBox();
+
+            _continentToCountry = new ContinentToCountry();
         }
 
         private async Task PopulateComboBox()
         {
             RootRegionObject regions = await Vultr.GetLocations();
+
+            _continentToCountry.Parse(regions);
+
+            string countries = "";
+
+            foreach (var lookup in _continentToCountry.Lookup)
+            {
+                if (lookup.Key == "Europe")
+                {
+                    foreach (var country in lookup.Value)
+                    {
+                        countries += country + " ";
+                    }
+                }
+            }
+
+            TextBlock.Text = countries;
 
             foreach (var continent in regions.Regions.GroupBy(x => x.Continent).Select(x => x.Key).OrderBy(x => x))
             {

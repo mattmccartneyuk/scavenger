@@ -28,3 +28,23 @@ public static class Vultr
         }
     }
 }
+
+public class ContinentToCountry
+{
+    public Dictionary<string, HashSet<string>>? Lookup { get; set; } = new();
+
+    public void Parse(RootRegionObject regions)
+    {
+        foreach (var region in regions.Regions)
+        {
+            if (!Lookup.ContainsKey(region.Continent))
+            {
+                Lookup.Add(region.Continent, new HashSet<string>{region.Country});
+            }
+            else
+            {
+                Lookup[region.Continent].Add(region.Country);
+            }
+        }
+    }
+}
