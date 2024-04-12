@@ -20,10 +20,10 @@ namespace Scavenger.UI
         public MainWindow()
         {
             InitializeComponent();
-            PopulateContinentsComboBox();
+            PopulateComboBox();
         }
 
-        private async Task PopulateContinentsComboBox()
+        private async Task PopulateComboBox()
         {
             RootRegionObject regions = await Vultr.GetLocations();
 
@@ -32,7 +32,14 @@ namespace Scavenger.UI
                 ContinentsComboBox.Items.Add(continent);
             }
 
-            ContinentsComboBox.SelectedIndex = 1;
+            foreach (var country in regions.Regions.GroupBy(x => x.Country).Select(x => x.Key).OrderBy(x => x))
+            {
+                CountryComboBox.Items.Add(country);
+            }
+
+            ContinentsComboBox.SelectedIndex = 0;
+            CountryComboBox.SelectedIndex = 0;
         }
+        
     }
 }
