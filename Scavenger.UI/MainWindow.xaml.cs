@@ -34,21 +34,6 @@ namespace Scavenger.UI
 
             _continentToCountry.Parse(regions);
 
-            string countries = "";
-
-            foreach (var lookup in _continentToCountry.Lookup)
-            {
-                if (lookup.Key == "Europe")
-                {
-                    foreach (var country in lookup.Value)
-                    {
-                        countries += country + " ";
-                    }
-                }
-            }
-
-            TextBlock.Text = countries;
-
             foreach (var continent in regions.Regions.GroupBy(x => x.Continent).Select(x => x.Key).OrderBy(x => x))
             {
                 ContinentsComboBox.Items.Add(continent);
@@ -65,7 +50,20 @@ namespace Scavenger.UI
 
         private void ChangeCountryComboBox(object sender, SelectionChangedEventArgs e)
         {
-            TextBlock.Text = "changed to " + ContinentsComboBox.SelectedValue;
+            CountryComboBox.Items.Clear();
+
+            foreach (var lookup in _continentToCountry.Lookup)
+            {
+                if (lookup.Key == ContinentsComboBox.SelectedValue.ToString())
+                {
+                    foreach (var country in lookup.Value)
+                    {
+                        CountryComboBox.Items.Add(country);
+                    }
+                }
+            }
+
+            CountryComboBox.SelectedIndex = 0;
         }
     }
 }
