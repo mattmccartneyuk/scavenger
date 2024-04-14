@@ -27,6 +27,7 @@ namespace Scavenger.UI
             _continentToCountry = new ContinentToCountry();
         }
 
+
         private async Task PopulateComboBox()
         {
             RootRegionObject regions = await Vultr.GetLocations();
@@ -61,6 +62,10 @@ namespace Scavenger.UI
             ContinentsComboBox.SelectedIndex = 0;
             CountryComboBox.SelectedIndex = 0;
         }
-        
+
+        private void ChangeCountryComboBox(object sender, MouseButtonEventArgs e)
+        {
+            TextBlock.Text = "changed";
+        }
     }
 }

@@ -8,7 +8,7 @@
         Title="MainWindow" Height="450" Width="800" WindowState="Maximized">
     <Grid>
         <Label Content="Continent" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <ComboBox x:Name="ContinentsComboBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="150" Margin="10,25,0,0"></ComboBox>
+        <ComboBox x:Name="ContinentsComboBox" PreviewMouseLeftButtonDown="ChangeCountryComboBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="150" Margin="10,25,0,0"></ComboBox>
         <Label Content="Country" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,51,0,0"/>
         <ComboBox x:Name="CountryComboBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="150" Margin="10,76,0,0"/>
         <TextBlock x:Name="TextBlock" HorizontalAlignment="Left" Margin="201,153,0,0" TextWrapping="Wrap" Text="Initial Text" VerticalAlignment="Top" Height="97" Width="325"/>
