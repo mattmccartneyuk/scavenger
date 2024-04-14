@@ -63,9 +63,9 @@ namespace Scavenger.UI
             CountryComboBox.SelectedIndex = 0;
         }
 
-        private void ChangeCountryComboBox(object sender, MouseButtonEventArgs e)
+        private void ChangeCountryComboBox(object sender, SelectionChangedEventArgs e)
         {
-            TextBlock.Text = "changed";
+            TextBlock.Text = "changed to " + ContinentsComboBox.SelectedValue;
         }
     }
 }
