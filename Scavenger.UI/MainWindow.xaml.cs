@@ -17,14 +17,14 @@ namespace Scavenger.UI
     /// </summary>
     public partial class MainWindow : Window
     {
-        private ContinentToCountry _continentToCountry;
+        private ContinentToCountryToCity _continentToCountryToCity;
 
         public MainWindow()
         {
             InitializeComponent();
             PopulateComboBox();
 
-            _continentToCountry = new ContinentToCountry();
+            _continentToCountryToCity = new ContinentToCountryToCity();
         }
 
 
@@ -32,7 +32,7 @@ namespace Scavenger.UI
         {
             RootRegionObject regions = await Vultr.GetLocations();
 
-            _continentToCountry.Parse(regions);
+            _continentToCountryToCity.Parse(regions);
 
             foreach (var continent in regions.Regions.GroupBy(x => x.Continent).Select(x => x.Key).OrderBy(x => x))
             {
@@ -52,13 +52,13 @@ namespace Scavenger.UI
         {
             CountryComboBox.Items.Clear();
 
-            foreach (var lookup in _continentToCountry.Lookup)
+            foreach (var lookup in _continentToCountryToCity.Lookup)
             {
                 if (lookup.Key == ContinentsComboBox.SelectedValue.ToString())
                 {
                     foreach (var country in lookup.Value)
                     {
-                        CountryComboBox.Items.Add(country);
+                        CountryComboBox.Items.Add(country.Key);
                     }
                 }
             }
@@ -68,7 +68,14 @@ namespace Scavenger.UI
 
         private void CountryComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            CityComboBox.Items.Clear();
 
+            
+        }
+
+        private void CityComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            
         }
     }
 }

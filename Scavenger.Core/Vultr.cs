@@ -29,21 +29,32 @@ public static class Vultr
     }
 }
 
-public class ContinentToCountry
+public class ContinentToCountryToCity
 {
-    public Dictionary<string, HashSet<string>>? Lookup { get; set; } = new();
+    public Dictionary<string, Dictionary<string, HashSet<string>>>? Lookup { get; set; } = new();
 
     public void Parse(RootRegionObject regions)
     {
         foreach (var region in regions.Regions)
         {
-            if (!Lookup.ContainsKey(region.Continent))
+            var countryToCityDictionary = new Dictionary<string, HashSet<string>>();
+
+            if (!countryToCityDictionary.ContainsKey(region.Country))
             {
-                Lookup.Add(region.Continent, new HashSet<string>{region.Country});
+                countryToCityDictionary.Add(region.Country, new HashSet<string>{region.City});
             }
             else
             {
-                Lookup[region.Continent].Add(region.Country);
+                countryToCityDictionary[region.City].Add(region.City);
+            }
+
+            if (!Lookup.ContainsKey(region.Continent))
+            {
+                Lookup.Add(region.Continent, countryToCityDictionary);
+            }
+            else
+            {
+                Lookup[region.Continent][region.Country] = new HashSet<string> { region.City };
             }
         }
     }
