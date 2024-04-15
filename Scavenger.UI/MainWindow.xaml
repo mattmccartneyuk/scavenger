@@ -5,11 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Scavenger.UI"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" WindowState="Maximized">
+        Title="Scavenger" Height="450" Width="800" WindowState="Maximized">
     <Grid>
-        <Label Content="Continent" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <ComboBox x:Name="ContinentsComboBox" SelectionChanged="ChangeCountryComboBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="150" Margin="10,25,0,0"></ComboBox>
-        <Label Content="Country" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,51,0,0"/>
-        <ComboBox x:Name="CountryComboBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="150" Margin="10,76,0,0"/>
+        <Label Content="Continent" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="20"/>
+        <ComboBox x:Name="ContinentsComboBox" SelectionChanged="ChangeCountryComboBox" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="15" Margin="2,37,0,0" Height="24" Width="137"></ComboBox>
+        <Label Content="Country" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="20" Height="35" Margin="2,66,0,0"/>
+        <ComboBox x:Name="CountryComboBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="136" FontSize="15" Margin="3,101,0,0" SelectionChanged="CountryComboBox_SelectionChanged" Height="24"/>
     </Grid>
 </Window>

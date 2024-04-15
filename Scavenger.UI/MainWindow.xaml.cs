@@ -65,5 +65,10 @@ namespace Scavenger.UI
 
             CountryComboBox.SelectedIndex = 0;
         }
+
+        private void CountryComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }
