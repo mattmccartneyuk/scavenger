@@ -10,7 +10,7 @@
         <Label Content="Continent" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="20"/>
         <ComboBox x:Name="ContinentsComboBox" SelectionChanged="ChangeCountryComboBox" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="15" Margin="2,37,0,0" Height="24" Width="137"></ComboBox>
         <Label Content="Country" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="20" Height="35" Margin="2,66,0,0"/>
-        <ComboBox x:Name="CountryComboBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="136" FontSize="15" Margin="3,101,0,0" SelectionChanged="CountryComboBox_SelectionChanged" Height="24"/>
+        <ComboBox x:Name="CountryComboBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="136" FontSize="15" Margin="3,101,0,0" SelectionChanged="ChangeCityComboBox" Height="24"/>
         <Label Content="City" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="20" Height="35" Margin="0,130,0,0"/>
         <ComboBox x:Name="CityComboBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="136" FontSize="15" Margin="3,170,0,0" SelectionChanged="CityComboBox_SelectionChanged" Height="24"/>
     </Grid>

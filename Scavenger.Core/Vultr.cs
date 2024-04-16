@@ -37,24 +37,31 @@ public class ContinentToCountryToCity
     {
         foreach (var region in regions.Regions)
         {
-            var countryToCityDictionary = new Dictionary<string, HashSet<string>>();
-
-            if (!countryToCityDictionary.ContainsKey(region.Country))
-            {
-                countryToCityDictionary.Add(region.Country, new HashSet<string>{region.City});
-            }
-            else
-            {
-                countryToCityDictionary[region.City].Add(region.City);
-            }
-
             if (!Lookup.ContainsKey(region.Continent))
             {
-                Lookup.Add(region.Continent, countryToCityDictionary);
+                var country = new Dictionary<string, HashSet<string>>();
+                country.Add(region.Country, new HashSet<string>
+                {
+                    region.City
+                });
+
+                Lookup.Add(region.Continent, country);
             }
             else
             {
-                Lookup[region.Continent][region.Country] = new HashSet<string> { region.City };
+                if (!Lookup[region.Continent].ContainsKey(region.Country))
+                {
+                    var city = new HashSet<string>
+                    {
+                        region.City
+                    };
+
+                    Lookup[region.Continent].Add(region.Country, city);
+                }
+                else
+                {
+                    Lookup[region.Continent][region.Country].Add(region.City);
+                }
             }
         }
     }
