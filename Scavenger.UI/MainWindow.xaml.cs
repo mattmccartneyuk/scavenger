@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.Net.Mime;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -124,6 +125,13 @@ namespace Scavenger.UI
 
         private void CityComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+        }
+
+        private async void Deploy_Instance(object sender, RoutedEventArgs e)
+        {
+            var response = await Vultr.CreateInstance();
+
+            TextBlock.Text = response;
         }
     }
 }
