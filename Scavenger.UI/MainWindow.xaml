@@ -17,7 +17,12 @@
             <Button Content="Deploy" Height="25" HorizontalAlignment="Left" VerticalAlignment="Top" Width="65" Click="Deploy_Instance" Margin="32,201,0,0"/>
         </Grid>
         <Grid>
-            <TextBlock x:Name="TextBlock" Text="text goes here..." Height="200" Margin="350,118,77,117"/>
+            <TextBlock x:Name="TextBlock" Text="text goes here..." Height="200" Margin="174,262,253,-27"/>
+        </Grid>
+        <Grid Margin="226,0,226,197">
+            <Label Content="Instances" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="20"/>
+            <Button Content="Refresh" Height="25" HorizontalAlignment="Left" VerticalAlignment="Top" Width="65" Click="Get_Instances" Margin="109,6,0,0"/>
+            <TextBlock x:Name="InstancesTextBlock" TextWrapping="Wrap" Text="TextBlock" Margin="0,42,0,42"/>
         </Grid>
     </Grid>
 </Window>

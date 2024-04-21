@@ -1,4 +1,5 @@
-﻿using Scavenger.Core;
+﻿using System.ComponentModel;
+using Scavenger.Core;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -21,7 +22,6 @@ namespace Scavenger.UI
 
             TextBlock.Text = Settings.Default.APIKEY;
         }
-
 
         private async Task PopulateComboBox()
         {
@@ -125,6 +125,11 @@ namespace Scavenger.UI
             var response = await Vultr.CreateInstance();
 
             TextBlock.Text = response;
+        }
+
+        private async void Get_Instances(object sender, RoutedEventArgs e)
+        {
+            InstancesTextBlock.Text = await Vultr.GetAllInstances(Settings.Default.APIKEY);
         }
     }
 }

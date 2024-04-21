@@ -1,4 +1,5 @@
-﻿using System.Net.Http.Headers;
+﻿using System.ComponentModel;
+using System.Net.Http.Headers;
 using System.Text.Json;
 
 namespace Scavenger.Core;
@@ -26,6 +27,27 @@ public static class Vultr
             {
                 Regions = null
             };
+        }
+    }
+
+    public static async Task<string> GetAllInstances(string apiKey)
+    {
+        try
+        {
+            using (HttpClient client = new HttpClient())
+            {
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", apiKey);
+
+                HttpResponseMessage response = await client.GetAsync("https://api.vultr.com/v2/instances");
+
+                string body = await response.Content.ReadAsStringAsync();
+
+                return body;
+            }
+        }
+        catch (Exception e)
+        {
+            return "Failed HttpClient Connection";
         }
     }
 
