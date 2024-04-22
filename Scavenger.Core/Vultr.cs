@@ -14,23 +14,8 @@ public static class Vultr
 
     public static async Task<string> GetAllInstances(string apiKey)
     {
-        try
-        {
-            using (HttpClient client = new HttpClient())
-            {
-                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", apiKey);
-
-                HttpResponseMessage response = await client.GetAsync("https://api.vultr.com/v2/instances");
-
-                string body = await response.Content.ReadAsStringAsync();
-
-                return body;
-            }
-        }
-        catch (Exception e)
-        {
-            return "Failed HttpClient Connection";
-        }
+        var response = await VultrHttpProvider.Get(new HttpResource { Url = "https://api.vultr.com/v2/instances", ApiKey = apiKey });
+        return response;
     }
 
     public static async Task<string> CreateInstance()

@@ -1,4 +1,6 @@
-﻿namespace Scavenger.Core;
+﻿using System.Net.Http.Headers;
+
+namespace Scavenger.Core;
 
 public static class VultrHttpProvider 
 {
@@ -8,6 +10,7 @@ public static class VultrHttpProvider
         {
             using (HttpClient client = new HttpClient())
             {
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", resource.ApiKey);
                 HttpResponseMessage response = await client.GetAsync(resource.Url);
 
                 string body = await response.Content.ReadAsStringAsync();
