@@ -8,26 +8,8 @@ public static class Vultr
 {
     public static async Task<RootRegionObject> GetLocations()
     {
-        try
-        {
-            using (HttpClient client = new HttpClient())
-            {
-                HttpResponseMessage response = await client.GetAsync("https://api.vultr.com/v2/regions");
-
-                string body = await response.Content.ReadAsStringAsync();
-
-                RootRegionObject? regions = JsonSerializer.Deserialize<RootRegionObject>(body);
-
-                return regions;
-            }
-        }
-        catch (Exception e)
-        {
-            return new RootRegionObject
-            {
-                Regions = null
-            };
-        }
+        var response = await VultrHttpProvider.Get(new HttpResource { Url = "https://api.vultr.com/v2/regions" });
+        return JsonSerializer.Deserialize<RootRegionObject>(response)!;
     }
 
     public static async Task<string> GetAllInstances(string apiKey)
