@@ -122,7 +122,7 @@ namespace Scavenger.UI
 
         private async void Deploy_Instance(object sender, RoutedEventArgs e)
         {
-            var response = await Vultr.CreateInstance();
+            var response = await Vultr.CreateInstance(Settings.Default.APIKEY);
 
             TextBlock.Text = response;
         }

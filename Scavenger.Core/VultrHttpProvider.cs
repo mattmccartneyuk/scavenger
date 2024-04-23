@@ -23,10 +23,33 @@ public static class VultrHttpProvider
             return "Not Found";
         }
     }
+
+    public static async Task<string> Post(HttpResource resource)
+    {
+        try
+        {
+            using (HttpClient client = new HttpClient())
+            {
+                HttpContent content = new StringContent(resource.RequestBody, System.Text.Encoding.UTF8, "application/json");
+
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", resource.ApiKey);
+
+                HttpResponseMessage response = await client.PostAsync(resource.Url, content);
+
+                return await response.Content.ReadAsStringAsync();
+            }
+        }
+        catch (Exception e)
+        {
+            return "Failed HttpClient Connection.";
+
+        }
+    }
 }
 
 public struct HttpResource
 {
     public string ApiKey { get; set; }
     public string Url { get; set; }
+    public string RequestBody { get; set; }
 }
