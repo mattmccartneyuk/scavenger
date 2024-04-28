@@ -11,12 +11,14 @@ namespace Scavenger.UI
     public partial class MainWindow : Window
     {
         private ContinentToCountryToCity _continentToCountryToCity;
-        private bool _isProcessing;
+        private readonly Instance _InstanceDetails;
 
         public MainWindow()
         {
             InitializeComponent();
             PopulateComboBox();
+
+            _InstanceDetails = new Instance();
 
             _continentToCountryToCity = new ContinentToCountryToCity();
 
@@ -124,7 +126,9 @@ namespace Scavenger.UI
         {
             var response = await Vultr.CreateInstance(Settings.Default.APIKEY);
 
-            TextBlock.Text = response;
+            _InstanceDetails.Update(response.Instance.DefaultUser, response.Instance.Password);
+
+            TextBlock.Text = $"{_InstanceDetails.DefaultUser}, {_InstanceDetails.Password}";
         }
 
         private async void Get_Instances(object sender, RoutedEventArgs e)
