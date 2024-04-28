@@ -126,7 +126,7 @@ namespace Scavenger.UI
         {
             var response = await Vultr.CreateInstance(Settings.Default.APIKEY);
 
-            _InstanceDetails.Update(response.Instance.DefaultUser, response.Instance.Password);
+            _InstanceDetails.Update(response.Instance.IpAddress, response.Instance.DefaultUser, response.Instance.Password);
 
             TextBlock.Text = $"{_InstanceDetails.DefaultUser}, {_InstanceDetails.Password}";
         }
@@ -134,6 +134,13 @@ namespace Scavenger.UI
         private async void Get_Instances(object sender, RoutedEventArgs e)
         {
             InstancesTextBlock.Text = await Vultr.GetAllInstances(Settings.Default.APIKEY);
+        }
+
+        private async void Send_SSH(object sender, RoutedEventArgs e)
+        {
+            var result = await Vultr.SendSsh(_InstanceDetails);
+
+            InstancesTextBlock.Text = result;
         }
     }
 }

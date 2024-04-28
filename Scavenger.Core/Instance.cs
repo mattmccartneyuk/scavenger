@@ -16,10 +16,14 @@ public class Instance
     [JsonPropertyName("default_password")]
     public string? Password { get; set; }
 
-    public void Update(string defaultUser, string password)
+    [JsonPropertyName("main_ip")]
+    public string? IpAddress { get; set; }
+
+    public void Update(string ipAddress, string defaultUser, string password)
     {
         DefaultUser = defaultUser;
         Password = password;
+        IpAddress = ipAddress;
     }
 }
 

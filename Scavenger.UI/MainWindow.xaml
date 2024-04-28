@@ -22,6 +22,7 @@
         <Grid Margin="226,0,226,197">
             <Label Content="Instance" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="20"/>
             <Button Content="Refresh" Height="25" HorizontalAlignment="Left" VerticalAlignment="Top" Width="65" Click="Get_Instances" Margin="109,6,0,0"/>
+            <Button Content="SSH" Height="25" HorizontalAlignment="Left" VerticalAlignment="Top" Width="65" Click="Send_SSH" Margin="197,6,0,0"/>
             <TextBlock x:Name="InstancesTextBlock" TextWrapping="Wrap" Text="TextBlock" Margin="0,42,0,42"/>
         </Grid>
     </Grid>
