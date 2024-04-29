@@ -19,6 +19,7 @@ namespace Scavenger.UI
             PopulateComboBox();
 
             _InstanceDetails = new Instance();
+            _InstanceDetails.Update("0.0.0.0", "root", "password");
 
             _continentToCountryToCity = new ContinentToCountryToCity();
 
@@ -141,6 +142,13 @@ namespace Scavenger.UI
             var result = await Vultr.SendSsh(_InstanceDetails);
 
             InstancesTextBlock.Text = result;
+        }
+
+        private void Get_InstanceDetails(object sender, RoutedEventArgs e)
+        {
+            UserBox.Text = _InstanceDetails.DefaultUser;
+            PasswordBox.Text = _InstanceDetails.Password;
+            IpBox.Text = _InstanceDetails.IpAddress;
         }
     }
 }

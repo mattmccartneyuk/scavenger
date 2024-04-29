@@ -5,9 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Scavenger.UI"
         mc:Ignorable="d"
-        Title="Scavenger" Height="450" Width="800" WindowState="Maximized">
+        Title="Scavenger" Height="800" Width="1400" WindowState="Maximized">
     <Grid>
-        <Grid Margin="0,0,650,197">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="57*"/>
+            <ColumnDefinition Width="339*"/>
+            <ColumnDefinition Width="4*"/>
+        </Grid.ColumnDefinitions>
+        <Grid Margin="0,0,642,197" Grid.ColumnSpan="2">
             <Label Content="Continent" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="20"/>
             <ComboBox x:Name="ContinentsComboBox" SelectionChanged="ChangeCountryComboBox" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="15" Margin="2,37,0,0" Height="24" Width="137"></ComboBox>
             <Label Content="Country" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="20" Height="35" Margin="2,66,0,0"/>
@@ -16,14 +21,21 @@
             <ComboBox x:Name="CityComboBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="136" FontSize="15" Margin="3,170,0,0" SelectionChanged="CityComboBox_SelectionChanged" Height="24"/>
             <Button Content="Deploy" Height="25" HorizontalAlignment="Left" VerticalAlignment="Top" Width="65" Click="Deploy_Instance" Margin="32,201,0,0"/>
         </Grid>
-        <Grid>
+        <Grid Margin="0,0,-444,0" Grid.ColumnSpan="3">
             <TextBlock x:Name="TextBlock" Text="text goes here..." Height="200" Margin="174,262,253,-27"/>
         </Grid>
-        <Grid Margin="226,0,226,197">
+        <Grid Margin="112,0,304,197" Grid.Column="1">
             <Label Content="Instance" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="20"/>
             <Button Content="Refresh" Height="25" HorizontalAlignment="Left" VerticalAlignment="Top" Width="65" Click="Get_Instances" Margin="109,6,0,0"/>
             <Button Content="SSH" Height="25" HorizontalAlignment="Left" VerticalAlignment="Top" Width="65" Click="Send_SSH" Margin="197,6,0,0"/>
-            <TextBlock x:Name="InstancesTextBlock" TextWrapping="Wrap" Text="TextBlock" Margin="0,42,0,42"/>
+            <TextBlock x:Name="InstancesTextBlock" TextWrapping="Wrap" Text="TextBlock" Margin="0,42,386,294"/>
+        </Grid>
+        <Grid Margin="498,-4,336,456" Grid.Column="1">
+            <Label Content="Change Instance Details" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="20"/>
+            <Button Content="Refresh" Height="25" HorizontalAlignment="Left" VerticalAlignment="Top" Width="65" Click="Get_InstanceDetails" Margin="226,6,0,0"/>
+            <TextBox x:Name="UserBox" HorizontalAlignment="Left" Margin="10,42,0,0" TextWrapping="Wrap" Text="User" VerticalAlignment="Top" Width="120"/>
+            <TextBox x:Name="PasswordBox" HorizontalAlignment="Left" Margin="10,64,0,0" TextWrapping="Wrap" Text="Password" VerticalAlignment="Top" Width="120"/>
+            <TextBox x:Name="IpBox" HorizontalAlignment="Left" Margin="10,86,0,0" TextWrapping="Wrap" Text="IP Address" VerticalAlignment="Top" Width="120"/>
         </Grid>
     </Grid>
 </Window>
