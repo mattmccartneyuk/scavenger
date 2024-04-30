@@ -5,7 +5,9 @@ VisualStudioVersion = 17.8.34330.188
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scavenger.Core", "Scavenger.Core\Scavenger.Core.csproj", "{321AFE33-96E0-4CD8-8866-AFD7FC4BC967}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scavenger.UI", "Scavenger.UI\Scavenger.UI.csproj", "{9906D189-4C8F-419B-B57F-67188FBB74B3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scavenger.UI", "Scavenger.UI\Scavenger.UI.csproj", "{9906D189-4C8F-419B-B57F-67188FBB74B3}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Scavenger.Setup", "Scavenger.Setup\Scavenger.Setup.vdproj", "{6E644615-A68B-438D-A047-1BD21FD99891}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,8 @@ Global
 		{9906D189-4C8F-419B-B57F-67188FBB74B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9906D189-4C8F-419B-B57F-67188FBB74B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9906D189-4C8F-419B-B57F-67188FBB74B3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6E644615-A68B-438D-A047-1BD21FD99891}.Debug|Any CPU.ActiveCfg = Debug
+		{6E644615-A68B-438D-A047-1BD21FD99891}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
