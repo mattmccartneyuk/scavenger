@@ -7,6 +7,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Config\config.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Config\config.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="SSH.NET" Version="2024.0.0" />
   </ItemGroup>
 

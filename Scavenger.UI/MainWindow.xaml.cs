@@ -2,6 +2,7 @@
 using Scavenger.Core;
 using System.Windows;
 using System.Windows.Controls;
+using Scavenger.Core.Config;
 
 namespace Scavenger.UI
 {
@@ -24,6 +25,7 @@ namespace Scavenger.UI
             _continentToCountryToCity = new ContinentToCountryToCity();
 
             TextBlock.Text = Settings.Default.APIKEY;
+            TextBlock.Text = ConfigManager.GetApiKey();
         }
 
         private async Task PopulateComboBox()

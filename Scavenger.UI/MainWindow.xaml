@@ -21,7 +21,7 @@
             <ComboBox x:Name="CityComboBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="136" FontSize="15" Margin="3,170,0,0" SelectionChanged="CityComboBox_SelectionChanged" Height="24"/>
             <Button Content="Deploy" Height="25" HorizontalAlignment="Left" VerticalAlignment="Top" Width="65" Click="Deploy_Instance" Margin="32,201,0,0"/>
         </Grid>
-        <Grid Margin="0,0,-444,0" Grid.ColumnSpan="3">
+        <Grid Grid.ColumnSpan="3">
             <TextBlock x:Name="TextBlock" Text="text goes here..." Height="200" Margin="174,262,253,-27"/>
         </Grid>
         <Grid Margin="112,0,304,197" Grid.Column="1">
