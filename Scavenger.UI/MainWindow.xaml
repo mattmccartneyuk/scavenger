@@ -36,6 +36,9 @@
             <TextBox x:Name="UserBox" HorizontalAlignment="Left" Margin="10,42,0,0" TextWrapping="Wrap" Text="User" VerticalAlignment="Top" Width="120"/>
             <TextBox x:Name="PasswordBox" HorizontalAlignment="Left" Margin="10,64,0,0" TextWrapping="Wrap" Text="Password" VerticalAlignment="Top" Width="120"/>
             <TextBox x:Name="IpBox" HorizontalAlignment="Left" Margin="10,86,0,0" TextWrapping="Wrap" Text="IP Address" VerticalAlignment="Top" Width="120"/>
+            <Label Content="Api Details" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="20" Margin="0,108,0,0"/>
+            <TextBox x:Name="ApiKeyBox" HorizontalAlignment="Left" Margin="10,145,0,0" TextWrapping="Wrap" Text="Api Key" VerticalAlignment="Top" Width="120"/>
+            <Button Content="Change" Height="25" HorizontalAlignment="Left" VerticalAlignment="Top" Width="65" Click="Set_ApiKey" Margin="226,141,0,0"/>
         </Grid>
     </Grid>
 </Window>

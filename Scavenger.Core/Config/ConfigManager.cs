@@ -13,6 +13,20 @@ public class ConfigManager
 
         return JsonSerializer.Deserialize<ConfigJsonMap>(jsonText)!.ApiKey;
     }
+
+    public static void SetApiKey(string newApiKey)
+    {
+        var path = Environment.ProcessPath;
+
+        var json = new ConfigJsonMap
+        {
+            ApiKey = "555"
+        };
+
+        var newJson = JsonSerializer.Serialize(json);
+
+        File.WriteAllText(Path.Combine(path, "..", "Config", "config.json"), newJson);
+    }
 }
 
 public class ConfigJsonMap

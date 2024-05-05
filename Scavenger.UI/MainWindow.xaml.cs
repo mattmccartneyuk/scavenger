@@ -152,5 +152,12 @@ namespace Scavenger.UI
             PasswordBox.Text = _InstanceDetails.Password;
             IpBox.Text = _InstanceDetails.IpAddress;
         }
+
+        private void Set_ApiKey(object sender, RoutedEventArgs e)
+        {
+            var apiKey = ApiKeyBox.Text;
+
+            ConfigManager.SetApiKey(apiKey);
+        }
     }
 }
