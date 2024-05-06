@@ -3,6 +3,7 @@ using Scavenger.Core;
 using System.Windows;
 using System.Windows.Controls;
 using Scavenger.Core.Config;
+using Scavenger.Core.Utility;
 
 namespace Scavenger.UI
 {
@@ -34,20 +35,9 @@ namespace Scavenger.UI
 
             _continentToCountryToCity.Parse(regions);
 
-            foreach (var continent in regions.Regions.GroupBy(x => x.Continent).Select(x => x.Key).OrderBy(x => x))
-            {
-                ContinentsComboBox.Items.Add(continent);
-            }
-
-            foreach (var country in regions.Regions.GroupBy(x => x.Country).Select(x => x.Key).OrderBy(x => x))
-            {
-                CountryComboBox.Items.Add(country);
-            }
-
-            foreach (var city in regions.Regions.GroupBy(x => x.City).Select(x => x.Key).OrderBy(x => x))
-            {
-                CityComboBox.Items.Add(city);
-            }
+            FilterComboBox.Execute(regions.Regions, x => x.Continent, item => ContinentsComboBox.Items.Add(item));
+            FilterComboBox.Execute(regions.Regions, x => x.Country, item => CountryComboBox.Items.Add(item));
+            FilterComboBox.Execute(regions.Regions, x => x.City, item => CityComboBox.Items.Add(item));
 
             ContinentsComboBox.SelectedIndex = 0;
             CountryComboBox.SelectedIndex = 0;
