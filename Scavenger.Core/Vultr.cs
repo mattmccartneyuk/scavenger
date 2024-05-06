@@ -14,13 +14,13 @@ public static class Vultr
 
     public static async Task<string> GetAllInstances(string apiKey)
     {
-        var response = await VultrHttpProvider.Get(new HttpResource { Url = "https://api.vultr.com/v2/instances", ApiKey = apiKey });
+        var response = await VultrHttpProvider.Get(new HttpResource { Url = "https://api.vultr.com/v2/instances"});
         return response;
     }
 
-    public static async Task<CreateResponse> CreateInstance(string apiKey)
+    public static async Task<CreateResponse> CreateInstance()
     {
-        var response = await VultrHttpProvider.Post(new HttpResource { Url = "https://api.vultr.com/v2/instances", ApiKey = apiKey, RequestBody = "{\"region\":\"lhr\",\"plan\":\"vc2-1c-1gb\",\"os_id\":\"2179\"}" });
+        var response = await VultrHttpProvider.Post(new HttpResource { Url = "https://api.vultr.com/v2/instances", RequestBody = "{\"region\":\"lhr\",\"plan\":\"vc2-1c-1gb\",\"os_id\":\"2179\"}" });
         var instance = JsonSerializer.Deserialize<RootInstanceObject>(response);
         return new CreateResponse
         {

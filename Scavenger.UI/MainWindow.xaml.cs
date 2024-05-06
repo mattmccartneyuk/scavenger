@@ -24,8 +24,8 @@ namespace Scavenger.UI
 
             _continentToCountryToCity = new ContinentToCountryToCity();
 
-            TextBlock.Text = Settings.Default.APIKEY;
             TextBlock.Text = ConfigManager.GetApiKey();
+            ApiKeyBox.Text = ConfigManager.GetApiKey();
         }
 
         private async Task PopulateComboBox()
@@ -127,7 +127,7 @@ namespace Scavenger.UI
 
         private async void Deploy_Instance(object sender, RoutedEventArgs e)
         {
-            var response = await Vultr.CreateInstance(Settings.Default.APIKEY);
+            var response = await Vultr.CreateInstance();
 
             _InstanceDetails.Update(response.Instance.IpAddress, response.Instance.DefaultUser, response.Instance.Password);
 
@@ -136,7 +136,7 @@ namespace Scavenger.UI
 
         private async void Get_Instances(object sender, RoutedEventArgs e)
         {
-            InstancesTextBlock.Text = await Vultr.GetAllInstances(Settings.Default.APIKEY);
+            InstancesTextBlock.Text = await Vultr.GetAllInstances(ConfigManager.GetApiKey());
         }
 
         private async void Send_SSH(object sender, RoutedEventArgs e)

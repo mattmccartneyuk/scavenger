@@ -20,7 +20,7 @@ public class ConfigManager
 
         var json = new ConfigJsonMap
         {
-            ApiKey = "555"
+            ApiKey = newApiKey 
         };
 
         var newJson = JsonSerializer.Serialize(json);

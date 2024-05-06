@@ -5,8 +5,6 @@
 
 # dotenv files
 .env
-/Scavenger.UI/Settings.settings
-/Scavenger.UI/Settings.Designer.cs
 
 # User-specific files
 *.rsuser

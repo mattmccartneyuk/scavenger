@@ -1,4 +1,5 @@
 ﻿using System.Net.Http.Headers;
+using Scavenger.Core.Config;
 
 namespace Scavenger.Core;
 
@@ -10,7 +11,7 @@ public static class VultrHttpProvider
         {
             using (HttpClient client = new HttpClient())
             {
-                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", resource.ApiKey);
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", ConfigManager.GetApiKey());
                 HttpResponseMessage response = await client.GetAsync(resource.Url);
 
                 string body = await response.Content.ReadAsStringAsync();
@@ -32,7 +33,7 @@ public static class VultrHttpProvider
             {
                 HttpContent content = new StringContent(resource.RequestBody, System.Text.Encoding.UTF8, "application/json");
 
-                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", resource.ApiKey);
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", ConfigManager.GetApiKey());
 
                 HttpResponseMessage response = await client.PostAsync(resource.Url, content);
 
@@ -49,7 +50,6 @@ public static class VultrHttpProvider
 
 public struct HttpResource
 {
-    public string ApiKey { get; set; }
     public string Url { get; set; }
     public string RequestBody { get; set; }
 }
