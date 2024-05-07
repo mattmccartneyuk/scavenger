@@ -1,0 +1,11 @@
+---
+- name: Example Web Server Ansible Playbook (Nginx)
+  hosts: localhost
+  connection: local
+  become: yes
+
+  tasks:
+    - name: Update
+      command: apt update -y
+    - name: Upgrade
+      command: apt upgrade -y
