@@ -15,3 +15,18 @@
       service:
         name: nginx
         state: started
+    - name: Delete The Default Nginx Web Page
+      file:
+        path: /var/www/html/index.nginx-debian.html
+        state: absent
+    - name: Create New Web Page
+      copy:
+        content: |
+          <html>
+          <head>
+            <title>Personal Site</title>
+          </head>
+          <body>
+          <p>This is a custom site.</p>
+          </body>
+        dest: /var/www/html/index.nginx-debian.html
