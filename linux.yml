@@ -9,3 +9,9 @@
       command: apt update -y
     - name: Upgrade
       command: apt upgrade -y
+    - name: Install Nginx
+      command: apt install nginx -y
+    - name: Start Nginx Service
+      service:
+        name: nginx
+        state: started
